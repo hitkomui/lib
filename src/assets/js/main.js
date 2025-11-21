@@ -1,6 +1,7 @@
 import LoopSlider from './classes/LoopSlider.js';
 import MouseStalker from './classes/MouseStalker.js';
 import ScrollProgressAnimation from './classes/ScrollProgressAnimation.js';
+import TextReveal from './classes/TextReveal.js';
 
 export default function main() {
     console.log('JS Start!!');
@@ -46,6 +47,19 @@ export default function main() {
             }
         }
     }).init();
+
+    // Text Reveal
+    new TextReveal('h3', {
+        effect: 'fade',
+        once: false, // 何度でも繰り返す,
+				rootMargin: '0px 0px -50% 0px',
+    });
+
+    new TextReveal('h2', {
+        effect: 'slide',
+        once: false,
+				rootMargin: '0px 0px -50% 0px',
+    });
 };
 
 main();

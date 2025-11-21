@@ -5,12 +5,18 @@
 
 .c-block__item--pd {
 	padding: 0 2rem;
+	h2,h3 {
+		padding: 0;
+	}
 }
 
 .c-block__item--2col {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 0;
+	&.gap {
+		gap: 2rem;
+	}
 }
 
 .c-block--all-center {

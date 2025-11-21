@@ -1,0 +1,50 @@
+@use "../../foundation/variable" as *;
+
+.js-text-reveal,
+.js-text-reveal-slide {
+  // 共通設定
+  .js-text-reveal-char {
+    display: inline-block;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+  }
+
+  // Effect: Fade (Default)
+  &.js-text-reveal-effect-fade {
+    .js-text-reveal-char {
+      opacity: 0;
+      transform: translateY(0.5em);
+    }
+
+    &.is-inview {
+      .js-text-reveal-char {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Effect: Slide (Overflow Hidden)
+  &.js-text-reveal-effect-slide {
+    .js-text-reveal-wrapper {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom; // ベースライン合わせ
+      line-height: 1.2; // 欠け防止
+      padding-bottom: 0.1em; // ディセンダー対策
+      margin-bottom: -0.1em;
+    }
+
+    .js-text-reveal-char {
+      opacity: 1; // slideの場合はopacity変化なしでもOKだが、好みで
+      transform: translateY(105%);
+    }
+
+    &.is-inview {
+      .js-text-reveal-char {
+        transform: translateY(0);
+      }
+    }
+  }
+}
