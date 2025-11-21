@@ -1,0 +1,24 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "LoopSlider.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "convert-images": "node scripts/convert-images.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.94.2",
+    "sharp": "^0.34.5",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
+  }
+}
