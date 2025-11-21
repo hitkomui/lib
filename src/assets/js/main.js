@@ -27,19 +27,25 @@ export default function main() {
         selector: '[data-mouse-stalker]'
     });
 
-    // // Scroll Progress
-    // new ScrollProgressAnimation({
-    //     containerSelector: '.js-scroll-container',
-    //     progressSelector: '.c-scroll-line__progress',
-    //     itemSelector: '.c-scroll-item',
-    //     triggerPosition: '60%',
-    //     onItemActive: (item) => {
-    //         item.classList.add('is-active');
-    //     },
-    //     onItemInactive: (item) => {
-    //         item.classList.remove('is-active');
-    //     }
-    // }).init();
+    // Scroll Progress
+    new ScrollProgressAnimation({
+        containerSelector: '.js-scroll-container',
+        progressSelector: '.js-scroll-progress-line',
+        itemSelector: '[data-scroll-item]',
+        triggerPosition: '60%',
+        onItemActive: (item) => {
+            item.classList.add('is-active');
+            if (item.classList.contains('c-scroll-dot')) {
+                item.closest('.c-scroll-item')?.classList.add('is-active');
+            }
+        },
+        onItemInactive: (item) => {
+            item.classList.remove('is-active');
+            if (item.classList.contains('c-scroll-dot')) {
+                item.closest('.c-scroll-item')?.classList.remove('is-active');
+            }
+        }
+    }).init();
 };
 
 main();

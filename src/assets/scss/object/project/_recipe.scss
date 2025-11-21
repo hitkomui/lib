@@ -1,8 +1,6 @@
 .p-recipe-section {
     margin-bottom: 6rem;
-    opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
 
     &:nth-child(1) {
         animation-delay: 0.1s;
@@ -23,7 +21,5 @@
 .p-demo-area {
     border-radius: 12px;
     padding: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     overflow: hidden;
-    min-height: 300px;
 }

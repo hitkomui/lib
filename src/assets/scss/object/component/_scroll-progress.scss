@@ -9,7 +9,6 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background: #eee;
 
     &__progress {
         position: absolute;
@@ -24,7 +23,8 @@
 }
 
 .c-scroll-item {
-    padding: 20px;
+    position: relative;
+    padding: 10px 30px;
     background: #f9f9f9;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -33,6 +33,29 @@
     &.is-active {
         background: #333;
         color: #fff;
-        transform: translateX(10px);
+    }
+
+		h3 {
+			padding: 0;
+		}
+}
+
+.c-scroll-dot {
+    position: absolute;
+    left: -29px; // コンテナのpadding(50px) - ラインの中心(21px) = 29px
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 50%;
+    z-index: 1;
+    transition: 0.3s;
+
+    &.is-active {
+        background: #000;
+        border-color: #000;
+        transform: translate(-50%, -50%) scale(1.2);
     }
 }
