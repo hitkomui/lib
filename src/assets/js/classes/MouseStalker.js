@@ -35,8 +35,8 @@ class MouseStalker {
     // デフォルト設定とマージ
     this.config = {
       selector: '[data-mouse-stalker]',
-      stalkerClass: 'js-mouseStalker',
-      textClass: 'js-mouseStalker__text',
+      stalkerClass: 'c-mouse-stalker',
+      textClass: 'c-mouse-stalker__text',
       defaultText: '',
       alwaysVisible: false,
       ease: 0.18,
@@ -134,7 +134,7 @@ class MouseStalker {
       backfaceVisibility: 'hidden',
       transform: `translate3d(${this.pos[0]}px, ${this.pos[1]}px, 0)`,
       opacity: '0', // 初期状態は非表示
-      transition: 'opacity 0.3s ease, visibility 0.3s ease', // フェードイン・アウト用
+      transition: 'opacity 0.3s ease, visibility 0s linear 0.3s', // フェードイン・アウト用
       visibility: 'hidden', // 完全に隠す
     };
 
@@ -148,7 +148,7 @@ class MouseStalker {
 
     this.textEl = document.createElement('span');
     this.textEl.className = this.config.textClass;
-    this.textEl.style.transition = 'opacity 0.2s ease'; // テキストのフェード用
+    this.textEl.style.transition = 'opacity 0.3s ease'; // テキストのフェード用
     this.textEl.style.opacity = '0'; // テキストは初期非表示
 
     // alwaysVisibleかつdefaultTextがある場合は初期表示
@@ -194,6 +194,7 @@ class MouseStalker {
     // 最初の動きで表示開始（alwaysVisibleの場合）
     if (!this.isVisible && this.isEnabled && this.config.alwaysVisible) {
       this.isVisible = true;
+      this.container.style.transition = 'opacity 0.3s ease, visibility 0s';
       this.container.style.visibility = 'visible';
       this.container.style.opacity = '1';
     }
@@ -219,6 +220,7 @@ class MouseStalker {
     // 表示切り替え
     if (!this.isVisible) {
       this.isVisible = true;
+      this.container.style.transition = 'opacity 0.3s ease, visibility 0s';
       this.container.style.visibility = 'visible';
       this.container.style.opacity = '1';
 
@@ -253,6 +255,7 @@ class MouseStalker {
     if (this.config.alwaysVisible) return; // 常に表示なら隠さない
 
     this.isVisible = false;
+    this.container.style.transition = 'opacity 0.3s ease, visibility 0s linear 0.3s';
     this.container.style.opacity = '0';
     this.container.style.visibility = 'hidden';
   }
@@ -261,6 +264,7 @@ class MouseStalker {
     if (this.config.alwaysVisible) return; // 常に表示なら隠さない
 
     this.isVisible = false;
+    this.container.style.transition = 'opacity 0.3s ease, visibility 0s linear 0.3s';
     this.container.style.opacity = '0';
     this.container.style.visibility = 'hidden';
   }
@@ -319,7 +323,6 @@ class MouseStalker {
 
   clearMouseStalker() {
     this.activeTarget = null;
-    this.container.classList.remove('is-hover');
 
     if (this.config.alwaysVisible && this.config.defaultText) {
       // デフォルトテキストに戻す
@@ -332,8 +335,19 @@ class MouseStalker {
     // alwaysVisibleでない場合は隠す
     if (!this.config.alwaysVisible) {
       this.isVisible = false;
+      this.container.style.transition =
+        'opacity 0.3s ease, visibility 0s linear 0.3s';
       this.container.style.opacity = '0';
       this.container.style.visibility = 'hidden';
+
+      // フェードアウトに合わせてクラス削除を遅延
+      setTimeout(() => {
+        if (!this.isVisible && !this.activeTarget) {
+          this.container.classList.remove('is-hover');
+        }
+      }, 300);
+    } else {
+      this.container.classList.remove('is-hover');
     }
   }
 

@@ -1,0 +1,40 @@
+.c-mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 200;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transform-origin: left bottom;
+    transition: var(--transition-base);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform var(--transition-base);
+    }
+
+    &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    @media (max-width: 767px) {
+        display: block;
+    }
+}

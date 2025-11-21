@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+
+
+	h2 {
+			font-size: 2.5rem;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+		padding: 2rem;
+		text-transform: uppercase;
+	}
+
+h3 {
+		padding: 0 2rem;
+		font-size: 1.5rem;
+		text-transform: ceil($number: 0);
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

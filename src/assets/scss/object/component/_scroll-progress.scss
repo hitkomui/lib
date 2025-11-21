@@ -1,0 +1,38 @@
+.c-scroll-container {
+    position: relative;
+    padding-left: 50px;
+}
+
+.c-scroll-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #eee;
+
+    &__progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        transform-origin: top;
+        transform: scaleY(0); // Controlled by JS
+    }
+}
+
+.c-scroll-item {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: 0.4s;
+
+    &.is-active {
+        background: #333;
+        color: #fff;
+        transform: translateX(10px);
+    }
+}

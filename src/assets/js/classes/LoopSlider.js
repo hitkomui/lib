@@ -84,7 +84,7 @@ class LoopSlider {
   setupSlider() {
     // ラッパー要素を作成
     this.wrapper = document.createElement('div');
-    this.wrapper.className = 'loop-slider__wrapper';
+    this.wrapper.className = 'c-loop-slider__wrapper';
 
     // オリジナルのスライドをラッパーに移動
     this.slides.forEach((slide) => {
@@ -283,8 +283,13 @@ class LoopSlider {
   }
 
   onPointerDown(e) {
+    // マウス操作時のネイティブドラッグ（画像保存など）を無効化
+    if (e.type === 'mousedown') {
+      e.preventDefault();
+    }
+
     this.isDragging = true;
-    this.startX = e.clientX || e.touches[0].clientX;
+    this.startX = e.touches ? e.touches[0].clientX : e.clientX;
     this.startDragX = this.dragX;
 
     this.velocity = 0;
@@ -297,7 +302,7 @@ class LoopSlider {
   onPointerMove(e) {
     if (!this.isDragging) return;
 
-    this.currentX = e.clientX || e.touches[0].clientX;
+    this.currentX = e.touches ? e.touches[0].clientX : e.clientX;
     const diff = this.currentX - this.startX;
     this.dragX = this.startDragX + diff;
 

@@ -6,12 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Asset Recipes</title>
   <link rel="stylesheet" href="/assets/scss/style.scss">
-  <script type="module" src="/assets/js/main.js"></script>
 </head>
 
 <body>
-  <h1>JS Asset Recipes</h1>
-  <div id="app"></div>
+  <div class="l-layout">
+    <button class="c-mobile-menu-toggle" aria-label="Toggle Menu">
+      <span>MENU</span>
+    </button>
+    <aside class="l-sidebar">
+      <div class="l-sidebar__header">
+        <h1>Recipes</h1>
+      </div>
+      <nav class="l-sidebar__nav">
+        <ul>
+          <li><a href="#loop-slider" class="is-active">Loop Slider</a></li>
+          <li><a href="#mouse-stalker">Mouse Stalker</a></li>
+          <li><a href="#scroll-progress">Scroll Progress</a></li>
+        </ul>
+      </nav>
+      <div class="l-sidebar__footer">
+        <p>&copy; 2025</p>
+      </div>
+    </aside>
+
+    <main class="l-main-content">
+
+      <section id="loop-slider" class="p-recipe-section">
+          <h2>Loop Slider</h2>
+        <div class="p-demo-area">
+					<div class="c-block">
+
+						<div class="c-block__item">
+							<h3>Normal & Draggable</h3>
+							<div class="js-loop-slider2">
+								<!-- Images will be injected here or need to be added -->
+								<div class="slide-item"><img src="/assets/image/image01.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image02.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image03.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image04.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image05.png" alt=""></div>
+							</div>
+						</div>
+		
+						<div class="c-block__item">
+							<h3>Reverse & Scroll</h3>
+							<div class="js-loop-slider1">
+								<!-- Images will be injected here or need to be added -->
+								<div class="slide-item"><img src="/assets/image/image01.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image02.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image03.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image04.png" alt=""></div>
+								<div class="slide-item"><img src="/assets/image/image05.png" alt=""></div>
+							</div>
+						</div>
+
+					</div>
+
+        </div>
+      </section>
+
+      <section id="mouse-stalker" class="p-recipe-section">
+          <h2>Mouse Stalker</h2>
+        <div class="p-demo-area">
+					<div class="c-block">
+
+						<div class="c-block__item c-block__item--2col c-block__item--pd">
+							<section class="mouse-stalker-section c-block--all-center" data-mouse-stalker="Section01" style="height:10rem;background-color: #dddd;">[data-mouse-stalker="Section01]</section>
+							<section class="mouse-stalker-section c-block--all-center" data-mouse-stalker="Section02" style="height:10rem;background-color: #ddffaa;">[data-mouse-stalker="Section02]</section>
+						</div>
+					</div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/assets/js/main.js"></script>
 </body>
 
 </html>

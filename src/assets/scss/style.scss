@@ -1,5 +1,22 @@
-// Main SCSS file
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
+@use "foundation/variable" as *;
+
+// Foundation
+@use "foundation/reset";
+@use "foundation/base";
+@use "foundation/animation";
+
+// Layout
+@use "layout/layout";
+@use "layout/sidebar";
+@use "layout/main";
+
+// Object
+// Component
+@use "object/component/block";
+@use "object/component/mobile-menu";
+@use "object/component/loop-slider";
+@use "object/component/mouse-stalker";
+@use "object/component/scroll-progress";
+
+// Project
+@use "object/project/recipe";
