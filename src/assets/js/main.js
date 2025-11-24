@@ -11,7 +11,7 @@ export default function main() {
         gap: 20,
         effect: "scroll",
         inertia: 0.95,
-				reverse: true
+        reverse: true
     });
 
     new LoopSlider('.js-loop-slider2', {
@@ -19,7 +19,7 @@ export default function main() {
         gap: 20,
         effect: "draggable",
         inertia: 0.95,
-				reverse: false
+        reverse: false
     });
 
     // Mouse Stalker
@@ -52,13 +52,14 @@ export default function main() {
     new TextReveal('h3', {
         effect: 'fade',
         once: false, // 何度でも繰り返す,
-				rootMargin: '0px 0px -50% 0px',
+        rootMargin: '0px 0px -20% 0px',
     });
 
     new TextReveal('h2', {
         effect: 'slide',
         once: false,
-				rootMargin: '0px 0px -50% 0px',
+        rootMargin: '0px 0px -20% 0px',
+        stagger: 0.05,
     });
 };
 
