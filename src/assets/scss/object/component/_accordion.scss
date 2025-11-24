@@ -1,0 +1,81 @@
+@use "../../foundation/variable" as *;
+
+/*
+  Accordion
+  ---------------------------------------------------------
+*/
+
+.c-accordion {
+    width: 100%;
+    border-top: 1px solid rgba(#000, 0.2);
+}
+
+.c-accordion__item {
+    border-bottom: 1px solid rgba(#000, 0.2);
+}
+
+.c-accordion__trigger {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(#000, 0.02);
+    }
+
+    // Icon
+    &::after {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+        margin-left: 1rem;
+    }
+}
+
+.c-accordion__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    // Inner wrapper needed for grid animation
+    &-inner {
+        overflow: hidden;
+    }
+
+    // Content padding/style
+    p {
+        padding: 0 1rem 1.5rem;
+        line-height: 1.6;
+        color: rgba(#000, 0.8);
+        font-size: 0.95rem;
+    }
+}
+
+// Active State
+.c-accordion__item.is-active {
+    .c-accordion__trigger {
+        &::after {
+            transform: rotate(225deg); // Flip arrow
+        }
+    }
+
+    .c-accordion__content {
+        grid-template-rows: 1fr;
+    }
+}

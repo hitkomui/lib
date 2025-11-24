@@ -2,6 +2,7 @@ import LoopSlider from './classes/LoopSlider.js';
 import MouseStalker from './classes/MouseStalker.js';
 import ScrollProgressAnimation from './classes/ScrollProgressAnimation.js';
 import TextReveal from './classes/TextReveal.js';
+import Accordion from './classes/Accordion.js';
 
 export default function main() {
     console.log('JS Start!!');
@@ -59,7 +60,12 @@ export default function main() {
         effect: 'slide',
         once: false,
         rootMargin: '0px 0px -20% 0px',
-        stagger: 0.05,
+        stagger: 0.03,
+    });
+
+    // Accordion
+    new Accordion('.js-accordion', {
+        shouldOpenAll: false // true: 複数開ける, false: 1つだけ
     });
 };
 

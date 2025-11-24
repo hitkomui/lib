@@ -74,14 +74,24 @@ export default class Accordion {
     }
 
     open(item) {
+        const trigger = item.querySelector(this.options.triggerSelector);
         const content = item.querySelector(this.options.contentSelector);
+
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'true');
+        }
         if (content) {
             content.setAttribute('aria-hidden', 'false');
         }
     }
 
     close(item) {
+        const trigger = item.querySelector(this.options.triggerSelector);
         const content = item.querySelector(this.options.contentSelector);
+
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+        }
         if (content) {
             content.setAttribute('aria-hidden', 'true');
         }
